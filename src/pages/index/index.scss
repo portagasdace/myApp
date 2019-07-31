@@ -1,0 +1,97 @@
+@import "~taro-ui/dist/style/components/noticebar.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    width: 100%;
+    height: 110px;
+    background: #3385ff;
+
+    .header__logo {
+        width: 80px;
+        height: 80px;
+        float: left;
+        margin: 15px 0 0 15px;
+    }
+
+    .header__customer {
+        width: 220px;
+        height: 100%;
+        padding-right: 30px;
+        float: right;
+
+        .header__customer__span {
+            font-size: 30px;
+            line-height: 110px;
+            margin-right: 20px;
+            color: #fff;
+            float: left;
+        }
+
+        .header__customer__weChart {
+            width: 70px;
+            height: 70px;
+            float: left;
+            margin-top: 20px;
+        }
+
+        .header__customer__qq {
+            width: 55px;
+            height: 55px;
+            float: right;
+            margin-top: 27.5px;
+        }
+    }
+}
+
+.section {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    .section__title {
+        position: relative;
+        font-size: 28px;
+        height: 40px;
+        line-height: 40px;
+        color: #444;
+        padding-left: 26px;
+        display: block;
+        margin: 26px 0;
+
+        &::before {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            content: '';
+            width: 2px;
+            background: #3385ff;
+            height: 40px;
+        }
+    }
+
+    .section__bannner {
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+
+        .section__bannner__item {
+            width: 100%;
+            height: 100%;
+
+            .section__bannner__item__img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .section__notice {
+        width: 100%;
+        overflow: hidden;
+    }
+}

@@ -1,4 +1,7 @@
 const config = {
+  h5: {
+    esnextModules: ['taro-ui']
+  },
   projectName: 'myApp',
   date: '2019-7-31',
   designWidth: 750,
