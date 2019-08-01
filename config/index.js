@@ -1,3 +1,5 @@
+const path = require('path')
+
 const config = {
   h5: {
     esnextModules: ['taro-ui']
@@ -9,6 +11,9 @@ const config = {
     '640': 2.34 / 2,
     '750': 1,
     '828': 1.81 / 2
+  },
+  alias: {
+    "@": path.resolve(__dirname, "..", "src")
   },
   sourceRoot: 'src',
   outputRoot: 'dist',

@@ -1,4 +1,9 @@
 @import "~taro-ui/dist/style/components/noticebar.scss";
+@import "~taro-ui/dist/style/components/grid.scss";
+@import "~taro-ui/dist/style/components/textarea.scss";
+@import "~taro-ui/dist/style/components/button.scss";
+@import "~taro-ui/dist/style/components/divider.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
 
 * {
     margin: 0;
@@ -52,6 +57,11 @@
     padding: 20px;
     box-sizing: border-box;
     overflow: hidden;
+
+    .section__button {
+        float: right;
+        margin: 30px 0 ;
+    }
 
     .section__title {
         position: relative;

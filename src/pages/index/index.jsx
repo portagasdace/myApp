@@ -1,20 +1,19 @@
 import Taro, { Component } from '@tarojs/taro'
-import { AtNoticebar } from 'taro-ui'
-import { View, Text, Image, Swiper, SwiperItem } from '@tarojs/components'
+import { AtNoticebar, AtTextarea, AtButton, AtDivider  } from 'taro-ui'
+import { View, Text } from '@tarojs/components'
+
+import Header from './component/header'
+import Banner from './component/banner'
+import Menu from './component/menu'
 
 import './index.scss'
 
-import logo from '../../assets/icon-logo.png'
-import weChart from '../../assets/icon-weChart.png'
-import qq from '../../assets/icon-qq.png'
-import banner1 from '../../assets/img-banner1.jpg'
-import banner2 from '../../assets/img-banner2.jpg'
-import banner3 from '../../assets/img-banner3.jpg'
-import banner4 from '../../assets/img-banner4.jpg'
-
 export default class Index extends Component {
-  state = {
-    bannerList: [banner1, banner2, banner3, banner4]
+  constructor () {
+    super(...arguments)
+    this.state = {
+      value: ''
+    }
   }
   componentWillMount() {}
 
@@ -29,49 +28,36 @@ export default class Index extends Component {
   config = {
     navigationBarTitleText: '首页'
   }
+  handleChange (event) {
+    this.setState({
+      value: event.target.value
+    })
+  }
   render() {
-    const { bannerList } = this.state
     return (
       <View className='index'>
-        <View className='header'>
-          <Image className='header__logo' src={logo} />
-          <View className='header__customer'>
-            <Text className='header__customer__span'>客服</Text>
-            <Image className='header__customer__weChart' src={weChart} />
-            <Image className='header__customer__qq' src={qq} />
-          </View>
-        </View>
+        <Header />
         <View className='section'>
-          <Swiper
-            className='section__bannner'
-            indicatorColor='#fff'
-            indicatorActiveColor='#3385ff'
-            vertical={false}
-            circular
-            indicatorDots
-            autoplay
-          >
-            {bannerList.map((k, index) => {
-              return (
-                <SwiperItem key={index}>
-                  <View className='section__bannner__item'>
-                    <Image className='section__bannner__item__img' src={k} />
-                  </View>
-                </SwiperItem>
-              )
-            })}
-          </Swiper>
+          <Banner />
           <View className='section__notice'>
             <Text className='section__title'>公告</Text>
-            <AtNoticebar
-              icon='volume-plus' 
-              marquee
-              single
-            >
-              这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏
+            <AtNoticebar icon='volume-plus' marquee single speed='50'>
+              这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar
+              通告栏
             </AtNoticebar>
           </View>
-          
+          <Text className='section__title'>功能</Text>
+          <Menu />
+          <Text className='section__title'>反馈留言</Text>
+          <AtTextarea
+            count={false}
+            value={this.state.value}
+            onConfirm={this.handleChange.bind(this)}
+            maxLength={200}
+            placeholder='您的意见是...'
+          />
+          <AtButton className='section__button' size='small' type='primary'>提交</AtButton>
+          <AtDivider content='更多转钱任务在更新中...敬请期待' />
         </View>
       </View>
     )
