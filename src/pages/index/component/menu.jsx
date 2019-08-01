@@ -1,7 +1,12 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View } from '@tarojs/components'
+import { View, Image } from '@tarojs/components'
 
 import { AtGrid } from 'taro-ui'
+
+import ios from '@/assets/img-ios.jpg'
+import android from '@/assets/img-android.jpg'
+import money from '@/assets/img-money.jpg'
+import waite from '@/assets/img-waite.jpg'
 
 export default class Menu extends Component {
   state = {}
@@ -17,7 +22,19 @@ export default class Menu extends Component {
   render() {
     return (
       <View className='menu'>
-        <AtGrid
+        <View className='menu__item'>
+          <Image className='menu__item__img' src={ios} />
+        </View>
+        <View className='menu__item'>
+          <Image className='menu__item__img' src={android} />
+        </View>
+        <View className='menu__item'>
+          <Image className='menu__item__img' src={money} />
+        </View>
+        <View className='menu__item'>
+          <Image className='menu__item__img' src={waite} />
+        </View>
+        {/* <AtGrid
           hasBorder
           columnNum={2}
           data={[
@@ -42,7 +59,7 @@ export default class Menu extends Component {
               value: '敬请期待'
             }
           ]}
-        />
+        /> */}
       </View>
     )
   }

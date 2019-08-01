@@ -40,15 +40,12 @@ export default class Index extends Component {
         <View className='section'>
           <Banner />
           <View className='section__notice'>
-            <Text className='section__title'>公告</Text>
             <AtNoticebar icon='volume-plus' marquee single speed='50'>
               这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar
               通告栏
             </AtNoticebar>
           </View>
-          <Text className='section__title'>功能</Text>
           <Menu />
-          <Text className='section__title'>反馈留言</Text>
           <AtTextarea
             count={false}
             value={this.state.value}
