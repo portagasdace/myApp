@@ -4,7 +4,7 @@
 @import '~taro-ui/dist/style/components/button.scss';
 @import '~taro-ui/dist/style/components/divider.scss';
 @import '~taro-ui/dist/style/components/icon.scss';
-
+@import "~taro-ui/dist/style/components/list.scss";
 * {
     margin: 0;
     padding: 0;
@@ -60,7 +60,7 @@
 
     .section__button {
         float: right;
-        margin: 30px 0 ;
+        margin: 30px 0;
     }
 
     .section__title {
@@ -103,19 +103,66 @@
     .section__notice {
         width: 100%;
         overflow: hidden;
+        margin-top: 20px;
+        .section__noice__swiper {
+            width: 100%;
+            height: 60px;
+            color: #de8c17;
+            font-size: 26px;
+            line-height: 60px;
+            text-align: left;
+            padding-left: 70px;
+            box-sizing: border-box;
+            background: #fcf6ed;
+
+            .section__noice__item {
+                width: 100%;
+                height: 60px;
+            }
+        }
+        .section__noice__content{
+            width: 100%;
+            height: 60px;
+            position: relative;
+            .section__noice__img{
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                width: 40px;
+                height: 40px;
+                float: left;
+                z-index: 100;
+            }
+        }
+    }
+    .section__textarea{
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+        border-radius: 20px;
+        background: #fcf6ed;
+        .section__textarea__item{
+            font-size: 25px;
+            height: 60px;
+            line-height: 60px;
+            padding-left: 20px;
+        }
     }
 }
-.menu{
-    margin-top:20px;
+
+.menu {
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    .menu__item{
+
+    .menu__item {
         width: 348px;
         height: 200px;
         border-radius: 10px;
         margin-bottom: 15px;
-        .menu__item__img{
+
+        .menu__item__img {
             border-radius: 10px;
             width: 348px;
             height: 200px;
