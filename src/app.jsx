@@ -17,7 +17,10 @@ class App extends Component {
 
   componentDidHide() {}
   config = {
-    pages: ['pages/index/index'],
+    pages: [
+      'pages/index/index',
+      'pages/appList/index'
+    ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',

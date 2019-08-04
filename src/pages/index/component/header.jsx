@@ -5,6 +5,8 @@ import logo from '@/assets/icon-logo.png'
 import weChart from '@/assets/icon-weChart.png'
 import qq from '@/assets/icon-qq.png'
 
+import '../index.scss'
+
 export default class Header extends Component {
   state = {}
   componentWillMount() {}
@@ -18,12 +20,12 @@ export default class Header extends Component {
   componentDidHide() {}
   render() {
     return (
-      <View className='header'>
-        <Image className='header__logo' src={logo} />
-        <View className='header__customer'>
-          <Text className='header__customer__span'>客服</Text>
-          <Image className='header__customer__weChart' src={weChart} />
-          <Image className='header__customer__qq' src={qq} />
+      <View className='head'>
+        <Image className='head__logo' src={logo} />
+        <View className='head__customer'>
+          <Text className='head__customer__span'>客服</Text>
+          <Image className='head__customer__weChart' src={weChart} />
+          <Image className='head__customer__qq' src={qq} />
         </View>
       </View>
     )

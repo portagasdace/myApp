@@ -3,12 +3,14 @@ import { View, Text, Image, Swiper, SwiperItem } from '@tarojs/components'
 
 import noice from '@/assets/icon-noice.png'
 
+import '../index.scss'
+
 export default class Noice extends Component {
   state = {
     noiceList: [
-      '这是王一飞的第一个公告，通报品评1',
-      '这是王一飞的第一个公告，通报品评2',
-      '这是王一飞的第一个公告，通报品评3'
+      '这是王一飞的第1个公告',
+      '这是王一飞的第2个公告',
+      '这是王一飞的第3个公告'
     ]
   }
   componentWillMount() {}
@@ -23,10 +25,11 @@ export default class Noice extends Component {
   render() {
     const { noiceList } = this.state
     return (
-      <View className='section__noice__content'>
-        <Image className='section__noice__img' src={noice} />
+      <View className='section__notice'>
+        <Image className='section__notice__img' src={noice} />
+        <View className='section__notice__video'>教程</View>
         <Swiper
-          className='section__noice__swiper'
+          className='section__notice__swiper'
           indicatorColor='#fff'
           indicatorActiveColor='#3385ff'
           circular
@@ -38,7 +41,7 @@ export default class Noice extends Component {
           {noiceList.map((k, index) => {
             return (
               <SwiperItem key={index}>
-                <View className='section__noice__item'>
+                <View className='section__notice__item'>
                   <Text>{k}</Text>
                 </View>
               </SwiperItem>

@@ -1,17 +1,24 @@
 import Taro, { Component } from '@tarojs/taro'
 import { AtButton, AtInput, AtDivider } from 'taro-ui'
-import { View, Text } from '@tarojs/components'
+import { View, Text,Input } from '@tarojs/components'
+
+import './index.scss'
 
 import Header from './component/header'
 import Banner from './component/banner'
 import Menu from './component/menu'
 import Notice from './component/notice'
+import Area from './component/textarea'
 
-import './index.scss'
+import banner1 from '@/assets/img-banner1.jpg'
+import banner2 from '@/assets/img-banner2.jpg'
+import banner3 from '@/assets/img-banner3.jpg'
+import banner4 from '@/assets/img-banner4.jpg'
 
 export default class Index extends Component {
   state = {
-    value: ''
+    value: '',
+    bannerList: [banner1, banner2, banner3, banner4]
   }
 
   componentWillMount() {}
@@ -35,35 +42,24 @@ export default class Index extends Component {
     return value
   }
   render() {
+    const { bannerList } = this.state
     return (
       <View className='index'>
         <Header />
         <View className='section'>
-          <Banner />
-          <View className='section__notice'>
-            <Notice />
-          </View>
+          <Banner bannerList={bannerList} />
+          <Notice />
           <Menu />
-          <View className='section__textarea'>
-            <View className='section__textarea__item' title=''><Text>标题文字...</Text></View>
-            <View className='section__textarea__item' title='标题文字'><Text>标题文字...</Text></View>
-            <View className='section__textarea__item' title='标题文字'><Text>标题文字...</Text></View>
-            <View className='section__textarea__item' title='标题文字'><Text>标题文字...</Text></View>
-            <View className='section__textarea__item' title='标题文字'><Text>标题文字..</Text></View>
-          </View>
-          <AtInput
-            name='value1'
-            title='文本'
-            type='text'
-            placeholder='单行文本'
-            value={this.state.value1}
-            onChange={this.handleChange.bind(this)}
-          />
+          <Area />
+          <Input className='section__input' placeholder="吐槽一下" type="text"/>
           <AtButton className='section__button' size='small' type='primary'>
             提交
           </AtButton>
-          <AtDivider content='更多转钱任务在更新中...敬请期待' />
         </View>
+        <View className="footer">
+          <p>更多赚钱任务在更新中...敬请期待</p>
+          <p>官方唯一网址:eshouz.com</p>
+         </View>
       </View>
     )
   }
