@@ -14,20 +14,20 @@ export default class Menu extends Component {
   state = {
     menuList: [
       {
-        path:'/pages/appList/index',
-        src:ios
+        path: '/pages/appList/index',
+        src: ios
       },
       {
-        path:'/pages/appList/index',
-        src:android
+        path: '/pages/appList/index',
+        src: android
       },
       {
-        path:'',
-        src:money
+        path: '',
+        src: money
       },
       {
-        path:'',
-        src:waite
+        path: '',
+        src: waite
       }
     ]
   }
@@ -43,7 +43,7 @@ export default class Menu extends Component {
   /**
    * @title 菜单点击事件
    */
-  menu_chlickHandler(data){
+  menu_chlickHandler(data) {
     Taro.navigateTo({
       url: data.path
     })
@@ -52,15 +52,17 @@ export default class Menu extends Component {
     const { menuList } = this.state
     return (
       <View className='menu'>
-        {
-          menuList.map(k=>{
-            return(
-              <View className='menu__item' onClick={this.menu_chlickHandler.bind(this,k)}>
-                <Image className='menu__item__img' src={k.src} />
-              </View>
-            )
-          })
-        }
+        {menuList.map((k, index) => {
+          return (
+            <View
+              key={index}
+              className='menu__item'
+              onClick={this.menu_chlickHandler.bind(this, k)}
+            >
+              <Image className='menu__item__img' src={k.src} />
+            </View>
+          )
+        })}
       </View>
     )
   }

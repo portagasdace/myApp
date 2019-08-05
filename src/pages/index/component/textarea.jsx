@@ -1,16 +1,15 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text, Image, Swiper, SwiperItem } from '@tarojs/components'
-
-import noice from '@/assets/icon-noice.png'
+import { View, Text } from '@tarojs/components'
 
 import '../index.scss'
 
 export default class textArea extends Component {
   state = {
-    noiceList: [
-      '这是王一飞的第一个公告，通报品评1',
+    textList: [
+      '标题文字标题文字标题文字标题文字标题文字标题文字标题文字',
       '这是王一飞的第一个公告，通报品评2',
-      '这是王一飞的第一个公告，通报品评3'
+      '这是王一飞的第一个公告，通报品评3',
+      '这是王一飞的第一个公告，通报品评4'
     ]
   }
   componentWillMount() {}
@@ -23,15 +22,17 @@ export default class textArea extends Component {
 
   componentDidHide() {}
   render() {
-    const { noiceList } = this.state
+    const { textList } = this.state
     return (
       <View className='section__textarea'>
-        <View className='section__textarea__item' title=''>游客1：<Text>标题文字标题文字标题文字标题文字标题文字标题文字标题文字</Text></View>
-        <View className='section__textarea__item' title='标题文字'>游客2：<Text>标题文字...</Text></View>
-        <View className='section__textarea__item' title='标题文字'>游客3：<Text>标题文字...</Text></View>
-        <View className='section__textarea__item' title='标题文字'>游客4：<Text>标题文字...</Text></View>
-        <View className='section__textarea__item' title='标题文字'>游客5：<Text>标题文字..</Text></View>
-    </View>
+        {textList.map((k, index) => {
+          return (
+            <View className='section__textarea__item' title='' key={index}>
+              游客{index + 1}：<Text>{k}</Text>
+            </View>
+          )
+        })}
+      </View>
     )
   }
 }
