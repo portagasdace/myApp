@@ -1,0 +1,63 @@
+@import "~taro-ui/dist/style/components/tag.scss";
+.applist__section__list {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    .applist__section__list__item {
+        position: relative;
+        height: 130px;
+        width: 100%;
+        border-bottom: 2px solid #eee;
+
+        .item__img {
+            position: absolute;
+            width: 90px;
+            height: 90px;
+            left: 20px;
+            border-radius: 10px;
+            top: 20px;
+        }
+
+        .item__name {
+            position: absolute;
+            display: block;
+            min-width: 200px;
+            left: 130px;
+            font-weight: bold;
+            top: 15px;
+            font-size: 26px;
+
+            .item__name__label {
+                margin-left: 20px;
+                background: #3385ff;
+                color: #fff;
+                font-weight: 300;
+            }
+        }
+
+        .item__span {
+            position: absolute;
+            display: block;
+            min-width: 200px;
+            left: 130px;
+            bottom: 15px;
+            color: #b3afaf;
+            font-size: 24px;
+        }
+
+        .item__download {
+            position: absolute;
+            font-size: 24px;
+            width: 120px;
+            height: 40px;
+            right: 20px;
+            color: #3385ff;
+            top: 45px;
+            background: #f6f6f6;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 30px;
+        }
+    }
+}

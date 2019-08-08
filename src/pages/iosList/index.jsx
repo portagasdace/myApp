@@ -1,7 +1,7 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Image, Text } from '@tarojs/components'
-import { AtTag } from 'taro-ui'
+import { View, Image } from '@tarojs/components'
 
+import List from '@/components/list/list'
 
 import back from '@/assets/icon-back.png'
 import app from '@/assets/img-app.jpg'
@@ -93,28 +93,7 @@ export default class appList extends Component {
           <View className='applist__section__swiepr'>
             <Banner bannerList={bannerList} />
           </View>
-          <View className='applist__section__list'>
-            {appLists.map((k, index) => {
-              return (
-                <View className='applist__section__list__item' key={index}>
-                  <Image className='item__img' src={k.src} />
-                  <Text className='item__name'>
-                    {k.name}
-                    <AtTag
-                      className='item__name__label'
-                      size='small'
-                      type='primary'
-                      circle
-                    >
-                      标签
-                    </AtTag>
-                  </Text>
-                  <Text className='item__span'>{k.span}</Text>
-                  <Text className='item__download'>去赚钱</Text>
-                </View>
-              )
-            })}
-          </View>
+          <List list={appLists}></List>
         </View>
       </View>
     )

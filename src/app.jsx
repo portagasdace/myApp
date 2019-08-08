@@ -1,4 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
+import "@tarojs/async-await"
 import Index from './pages/index'
 
 import './app.scss'
@@ -19,7 +20,8 @@ class App extends Component {
   config = {
     pages: [
       'pages/index/index',
-      'pages/appList/index'
+      'pages/iosList/index',
+      'pages/androidList/index'
     ],
     window: {
       backgroundTextStyle: 'light',

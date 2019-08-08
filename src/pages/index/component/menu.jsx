@@ -1,7 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Image } from '@tarojs/components'
 
-import { AtGrid } from 'taro-ui'
 
 import ios from '@/assets/img-ios.jpg'
 import android from '@/assets/img-android.jpg'
@@ -14,11 +13,11 @@ export default class Menu extends Component {
   state = {
     menuList: [
       {
-        path: '/pages/appList/index',
+        path: '/pages/iosList/index',
         src: ios
       },
       {
-        path: '/pages/appList/index',
+        path: '/pages/androidList/index',
         src: android
       },
       {

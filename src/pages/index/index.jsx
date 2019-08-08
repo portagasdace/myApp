@@ -2,6 +2,8 @@ import Taro, { Component } from '@tarojs/taro'
 import { AtButton } from 'taro-ui'
 import { View, Input } from '@tarojs/components'
 
+import Api from "@/api/index";
+
 import banner1 from '@/assets/img-banner1.jpg'
 import banner2 from '@/assets/img-banner2.jpg'
 import banner3 from '@/assets/img-banner3.jpg'
@@ -16,19 +18,39 @@ import Area from './component/textarea'
 
 export default class Index extends Component {
   state = {
-    bannerList: [banner1, banner2, banner3, banner4]
+    bannerList: [banner1, banner2, banner3, banner4],
+    params: {
+      region_type: "national",
+      channel_type: "all",
+      order: "desc"
+    },
   }
 
-  componentWillMount() {}
+  componentWillMount=()=> {
+    this.init()
+  }
 
   componentDidMount() {}
 
   componentWillUnmount() {}
-
   componentDidShow() {}
-
   componentDidHide() {}
-
+  init = async () => {
+    try {
+      const { params } = this.state;
+      Taro.showLoading({
+        title: '加载中',
+      });
+      console.log(await Api.getRealTimeList(params),'await Api.getRealTimeList(params)')
+      await Api.getRealTimeList(params).then(res => {
+        console.log(res)
+      });
+      Taro.hideLoading();
+    } catch (error) {
+      console.log(error)
+      Taro.hideLoading();
+    }
+  };
   config = {
     navigationBarTitleText: '首页'
   }
