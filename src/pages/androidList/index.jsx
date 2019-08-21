@@ -2,6 +2,7 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Image } from '@tarojs/components'
 
 import List from '@/components/list/list'
+import Api from "@/api/index";
 
 import back from '@/assets/icon-back.png'
 import app from '@/assets/img-app.jpg'
@@ -68,8 +69,54 @@ export default class androidList extends Component {
   componentDidHide() {}
 
   config = {
-    navigationBarTitleText: '列表'
+    navigationBarTitleText: '安卓专区'
   }
+  /**
+   * @title 初始化
+   */
+  async init(){
+    // await this.get_BannerList()
+    await this.get_paltformList()
+  }
+  /**
+   * @title 获取平台列表信息
+   */
+  async get_paltformList(){
+    try {
+      let param={
+        platformType:1,
+        offset:1
+      }
+      const res = await Api.getpaltFormList(param)
+      console.log(res)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  /**
+   * @description 请求轮播图列表
+   */
+  get_BannerList = async () => {
+    try {
+      Taro.showLoading({
+        title: '加载中',
+      });
+      const res = await Api.getBannerList()
+      if(res.code === 200){
+        let srcList = []
+        res.data.map(k=>{
+          srcList.push(k.img_url)
+        })
+        this.setState({
+          bannerList:srcList
+        })
+      }
+      Taro.hideLoading();
+    } catch (error) {
+      console.log(error)
+      Taro.hideLoading();
+    }
+  };
   /**
    * @title 返回
    */
@@ -90,9 +137,9 @@ export default class androidList extends Component {
           />
         </View>
         <View className='applist__section'>
-          <View className='applist__section__swiepr'>
+          {/* <View className='applist__section__swiepr'>
             <Banner bannerList={bannerList} />
-          </View>
+          </View> */}
           <List list={appLists}></List>
         </View>
       </View>

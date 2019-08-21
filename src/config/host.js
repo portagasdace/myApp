@@ -1,4 +1,4 @@
-const API_HOST = "https://csm-huan-api.huan.tv"
+const API_HOST = "http://148.70.245.24:9001"
 export default {
   API_HOST
 }

@@ -18,16 +18,15 @@ import Area from './component/textarea'
 
 export default class Index extends Component {
   state = {
-    bannerList: [banner1, banner2, banner3, banner4],
+    value:'',
+    bannerList: [banner1,banner2,banner3,banner4],
     params: {
-      region_type: "national",
-      channel_type: "all",
-      order: "desc"
+
     },
   }
 
   componentWillMount=()=> {
-    this.init()
+    // this.get_BannerList()
   }
 
   componentDidMount() {}
@@ -35,16 +34,21 @@ export default class Index extends Component {
   componentWillUnmount() {}
   componentDidShow() {}
   componentDidHide() {}
-  init = async () => {
+  get_BannerList = async () => {
     try {
-      const { params } = this.state;
       Taro.showLoading({
         title: '加载中',
       });
-      console.log(await Api.getRealTimeList(params),'await Api.getRealTimeList(params)')
-      await Api.getRealTimeList(params).then(res => {
-        console.log(res)
-      });
+      const res = await Api.getBannerList()
+      if(res.code === 200){
+        let srcList = []
+        res.data.map(k=>{
+          srcList.push(k.img_url)
+        })
+        this.setState({
+          bannerList:srcList
+        })
+      }
       Taro.hideLoading();
     } catch (error) {
       console.log(error)
@@ -52,7 +56,30 @@ export default class Index extends Component {
     }
   };
   config = {
-    navigationBarTitleText: '首页'
+    navigationBarTitleText: '一手赚'
+  }
+  /**
+   * @title  留言改变
+   */
+  onChange(data){
+    this.setState({
+      value:data.detail.value
+    })
+  }
+  /**
+   * @title 提交留言
+   */
+  submit = async ()=>{
+    const { value } = this.state
+    try {
+      const res = await Api.setLeaveMsg({content:value})
+      console.log(res)
+      if(res.code === 200){
+
+      }
+    } catch (error) {
+      console.log(error)
+    }
   }
   render() {
     const { bannerList } = this.state
@@ -65,11 +92,12 @@ export default class Index extends Component {
           <Menu />
           <Area />
           <Input
+            onChange={this.onChange.bind(this)}
             className='section__input'
             placeholder='吐槽一下'
             type='text'
           />
-          <AtButton className='section__button' size='small' type='primary'>
+          <AtButton className='section__button' size='small' type='primary' onClick={this.submit.bind(this)}>
             提交
           </AtButton>
         </View>

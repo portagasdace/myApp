@@ -2,13 +2,12 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Image } from '@tarojs/components'
 
 import List from '@/components/list/list'
+import Api from "@/api/index";
 
 import back from '@/assets/icon-back.png'
 import app from '@/assets/img-app.jpg'
-import banner1 from '@/assets/img-banner1.jpg'
-import banner2 from '@/assets/img-banner2.jpg'
-import banner3 from '@/assets/img-banner3.jpg'
-import banner4 from '@/assets/img-banner4.jpg'
+import banner1 from '@/assets/ios-banner1.jpg'
+import banner2 from '@/assets/ios-banner2.jpg'
 
 import Banner from '../index/component/banner'
 
@@ -54,10 +53,13 @@ export default class appList extends Component {
         span: '新平台大量任务'
       }
     ],
-    bannerList: [banner1, banner2, banner3, banner4]
+    bannerList: [banner1, banner2]
   }
 
-  componentWillMount() {}
+  componentWillMount() {
+    this.init()
+    // this.get_BannerList();
+  }
 
   componentDidMount() {}
 
@@ -68,8 +70,54 @@ export default class appList extends Component {
   componentDidHide() {}
 
   config = {
-    navigationBarTitleText: '列表'
+    navigationBarTitleText: '苹果专区'
   }
+  /**
+   * @title 初始化
+   */
+  async init(){
+    // await this.get_BannerList()
+    await this.get_paltformList()
+  }
+  /**
+   * @title 获取平台列表信息
+   */
+  async get_paltformList(){
+    try {
+      let param={
+        platformType:1,
+        offset:1
+      }
+      const res = await Api.getpaltFormList(param)
+      console.log(res)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  /**
+   * @description 请求轮播图列表
+   */
+  get_BannerList = async () => {
+    try {
+      Taro.showLoading({
+        title: '加载中',
+      });
+      const res = await Api.getBannerList()
+      if(res.code === 200){
+        let srcList = []
+        res.data.map(k=>{
+          srcList.push(k.img_url)
+        })
+        this.setState({
+          bannerList:srcList
+        })
+      }
+      Taro.hideLoading();
+    } catch (error) {
+      console.log(error)
+      Taro.hideLoading();
+    }
+  };
   /**
    * @title 返回
    */

@@ -5,11 +5,26 @@
 @import '~taro-ui/dist/style/components/divider.scss';
 @import '~taro-ui/dist/style/components/icon.scss';
 @import "~taro-ui/dist/style/components/list.scss";
+@import "~taro-ui/dist/style/components/modal.scss";
+
 .head {
     width: 100%;
     height: 110px;
     background: #fac140;
-
+    .head__modal{
+        .head__modal__img{
+            margin-top: 20px;
+            width: 100% !important;
+            height: 100% !important;
+        }
+        .head__modal__close{
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top:8Px;
+            right: 8Px;
+        }
+    }
     .head__logo {
         width: 240px;
         height: 80px;

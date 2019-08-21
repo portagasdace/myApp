@@ -6,10 +6,9 @@ import '../index.scss'
 export default class textArea extends Component {
   state = {
     textList: [
-      '标题文字标题文字标题文字标题文字标题文字标题文字标题文字',
-      '这是王一飞的第一个公告，通报品评2',
-      '这是王一飞的第一个公告，通报品评3',
-      '这是王一飞的第一个公告，通报品评4'
+      '留言功能还在开发中，后期开放，敬请期待...',
+      '有任何疑问都可以随时私聊客服',
+      '希望大家给予一些好的建议',
     ]
   }
   componentWillMount() {}
@@ -28,7 +27,7 @@ export default class textArea extends Component {
         {textList.map((k, index) => {
           return (
             <View className='section__textarea__item' title='' key={index}>
-              游客{index + 1}：<Text>{k}</Text>
+              <Text>{k}</Text>
             </View>
           )
         })}
