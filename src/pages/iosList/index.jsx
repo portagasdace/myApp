@@ -16,43 +16,7 @@ import './index.scss'
 
 export default class appList extends Component {
   state = {
-    appLists: [
-      {
-        src: app,
-        name: '店铺',
-        span: '新平台大量任务'
-      },
-      {
-        src: app,
-        name: '店铺',
-        span: '新平台大量任务'
-      },
-      {
-        src: app,
-        name: '店铺',
-        span: '新平台大量任务'
-      },
-      {
-        src: app,
-        name: '店铺',
-        span: '新平台大量任务'
-      },
-      {
-        src: app,
-        name: '店铺',
-        span: '新平台大量任务'
-      },
-      {
-        src: app,
-        name: '店铺',
-        span: '新平台大量任务'
-      },
-      {
-        src: app,
-        name: '店铺',
-        span: '新平台大量任务'
-      }
-    ],
+    appLists: [],
     bannerList: [banner1, banner2]
   }
 
@@ -82,14 +46,18 @@ export default class appList extends Component {
   /**
    * @title 获取平台列表信息
    */
-  async get_paltformList(){
+   get_paltformList = async () =>{
     try {
       let param={
-        platformType:1,
-        offset:1
+        platformType:2,
+        offset:0
       }
       const res = await Api.getpaltFormList(param)
-      console.log(res)
+      if(res.message === 'OK'){
+        this.setState({
+          appLists:res.data
+        })
+      }
     } catch (error) {
       console.log(error)
     }

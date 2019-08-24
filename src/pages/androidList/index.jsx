@@ -18,47 +18,13 @@ import './index.scss'
 
 export default class androidList extends Component {
   state = {
-    appLists: [
-      {
-        src: app,
-        name: '安卓店铺',
-        span: '新平台大量任务'
-      },
-      {
-        src: app,
-        name: '店铺2',
-        span: '新平台大量任务'
-      },
-      {
-        src: app,
-        name: '店铺3',
-        span: '新平台大量任务'
-      },
-      {
-        src: app,
-        name: '安卓店铺',
-        span: '新平台大量任务'
-      },
-      {
-        src: app,
-        name: '安卓店铺2',
-        span: '新平台大量任务'
-      },
-      {
-        src: app,
-        name: '店铺',
-        span: '新平台大量任务'
-      },
-      {
-        src: app,
-        name: '店铺',
-        span: '新平台大量任务'
-      }
-    ],
+    appLists: [],
     bannerList: [banner1, banner2, banner3, banner4]
   }
 
-  componentWillMount() {}
+  componentWillMount() {
+    this.init()
+  }
 
   componentDidMount() {}
 
@@ -85,10 +51,14 @@ export default class androidList extends Component {
     try {
       let param={
         platformType:1,
-        offset:1
+        offset:0
       }
       const res = await Api.getpaltFormList(param)
-      console.log(res)
+      if(res.message === 'OK'){
+        this.setState({
+          appLists:res.data
+        })
+      }
     } catch (error) {
       console.log(error)
     }
