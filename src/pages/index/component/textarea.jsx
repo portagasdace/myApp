@@ -24,7 +24,8 @@ export default class textArea extends Component {
         {textList.map((k, index) => {
           return (
             <View className='section__textarea__item' title='' key={index}>
-              <Text>{String.fromCharCode(65+Math.ceil(Math.random() * 25))}{Math.floor((Math.random()*90)+10)} : {k.content}</Text>
+              <Text style='display:block;width:30px;float:left'>{String.fromCharCode(65+Math.ceil(Math.random() * 25))}{Math.floor((Math.random()*90)+10)}</Text>
+              <Text> : {k.content}</Text>
             </View>
           )
         })}
