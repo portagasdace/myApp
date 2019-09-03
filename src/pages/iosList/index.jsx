@@ -1,5 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Image } from '@tarojs/components'
+import { AtPagination } from 'taro-ui'
 
 import List from '@/components/list/list'
 import Api from "@/api/index";
@@ -16,6 +17,7 @@ import './index.scss'
 
 export default class appList extends Component {
   state = {
+    total:0,
     appLists: [
       {
         src: app,
@@ -127,7 +129,7 @@ export default class appList extends Component {
     })
   }
   render() {
-    const { appLists, bannerList } = this.state
+    const { appLists, bannerList,total } = this.state
     return (
       <View className='applist'>
         <View className='applist__header'>
@@ -142,6 +144,12 @@ export default class appList extends Component {
             <Banner bannerList={bannerList} />
           </View>
           <List list={appLists}></List>
+          <AtPagination 
+            className='page'
+            total={total} 
+            pageSize={15}
+            current={1}
+          ></AtPagination>
         </View>
       </View>
     )
