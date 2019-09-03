@@ -18,43 +18,8 @@ import './index.scss'
 export default class appList extends Component {
   state = {
     total:0,
-    appLists: [
-      {
-        src: app,
-        name: '店铺',
-        span: '新平台大量任务'
-      },
-      {
-        src: app,
-        name: '店铺',
-        span: '新平台大量任务'
-      },
-      {
-        src: app,
-        name: '店铺',
-        span: '新平台大量任务'
-      },
-      {
-        src: app,
-        name: '店铺',
-        span: '新平台大量任务'
-      },
-      {
-        src: app,
-        name: '店铺',
-        span: '新平台大量任务'
-      },
-      {
-        src: app,
-        name: '店铺',
-        span: '新平台大量任务'
-      },
-      {
-        src: app,
-        name: '店铺',
-        span: '新平台大量任务'
-      }
-    ],
+    current:1,
+    appLists: [],
     bannerList: [banner1, banner2]
   }
 
@@ -84,14 +49,20 @@ export default class appList extends Component {
   /**
    * @title 获取平台列表信息
    */
-  async get_paltformList(){
+   get_paltformList = async () =>{
+     const { current } = this.state
     try {
       let param={
-        platformType:1,
-        offset:1
+        platformType:2,
+        offset:current
       }
       const res = await Api.getpaltFormList(param)
-      console.log(res)
+      if(res.message === 'OK'){
+        this.setState({
+          appLists:res.data,
+          total:res.count
+        })
+      }
     } catch (error) {
       console.log(error)
     }
@@ -128,8 +99,17 @@ export default class appList extends Component {
       url: '/pages/index/index'
     })
   }
+  /**
+   * @title 点击页码
+   */
+  onPageChange = (data) => {
+    this.setState({
+      current:data.current
+    })
+    this.get_paltformList()
+  }
   render() {
-    const { appLists, bannerList,total } = this.state
+    const { appLists, bannerList, total, current } = this.state
     return (
       <View className='applist'>
         <View className='applist__header'>
@@ -144,11 +124,15 @@ export default class appList extends Component {
             <Banner bannerList={bannerList} />
           </View>
           <List list={appLists}></List>
+          <View>
+            
+          </View>
           <AtPagination 
             className='page'
             total={total} 
             pageSize={15}
-            current={1}
+            current={current}
+            onPageChange={this.onPageChange.bind(this)}
           ></AtPagination>
         </View>
       </View>

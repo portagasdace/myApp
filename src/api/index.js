@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-08 13:26:09
+ * @LastEditTime: 2019-08-22 10:26:13
+ * @LastEditors: Please set LastEditors
+ */
 import Taro from '@tarojs/taro'
 import Host from "../config/host"
 import RealTimeDataApi from "./modules/realTimeData"
@@ -31,7 +38,7 @@ export default {
   put(url, data, { header, dataType } = {}) {
     return this.$http({ method: "PUT", header, url, data, dataType })
   },
-  $http({ method, url, data, header = {}, dataType = "json" }) {
+  $http({ method, url, data, header = {'content-type': 'application/json'}, dataType = "json" }) {
     return Taro.request({
       method,
       url,
