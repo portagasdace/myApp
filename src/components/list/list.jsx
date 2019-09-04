@@ -27,7 +27,6 @@ export default class List extends Component {
   }
   render() {
     const { list } = this.props
-    console.log(list)
     return (
       <View className='applist__section__list'>
         {list.map((k, index) => {

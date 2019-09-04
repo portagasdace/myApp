@@ -25,5 +25,12 @@ export default {
    */
   setLeaveMsg({content}) {
     return this.post(`${this.API_HOST}/leaveMsg/put`,{content})
+  },
+  /**
+   * @title 查看留言接口
+   * @param {content} 内容  
+   */
+  getLeaveMsg() {
+    return this.get(`${this.API_HOST}/leaveMsg/list`)
   }
 }

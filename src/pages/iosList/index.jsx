@@ -1,5 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Image } from '@tarojs/components'
+import { AtPagination } from 'taro-ui'
 
 import List from '@/components/list/list'
 import Api from "@/api/index";
@@ -16,6 +17,8 @@ import './index.scss'
 
 export default class appList extends Component {
   state = {
+    total:0,
+    current:1,
     appLists: [],
     bannerList: [banner1, banner2]
   }
@@ -47,15 +50,17 @@ export default class appList extends Component {
    * @title 获取平台列表信息
    */
    get_paltformList = async () =>{
+     const { current } = this.state
     try {
       let param={
         platformType:2,
-        offset:0
+        offset:current
       }
       const res = await Api.getpaltFormList(param)
       if(res.message === 'OK'){
         this.setState({
-          appLists:res.data
+          appLists:res.data,
+          total:res.count
         })
       }
     } catch (error) {
@@ -94,8 +99,17 @@ export default class appList extends Component {
       url: '/pages/index/index'
     })
   }
+  /**
+   * @title 点击页码
+   */
+  onPageChange = (data) => {
+    this.setState({
+      current:data.current
+    })
+    this.get_paltformList()
+  }
   render() {
-    const { appLists, bannerList } = this.state
+    const { appLists, bannerList, total, current } = this.state
     return (
       <View className='applist'>
         <View className='applist__header'>
@@ -110,6 +124,16 @@ export default class appList extends Component {
             <Banner bannerList={bannerList} />
           </View>
           <List list={appLists}></List>
+          <View>
+            
+          </View>
+          <AtPagination 
+            className='page'
+            total={total} 
+            pageSize={15}
+            current={current}
+            onPageChange={this.onPageChange.bind(this)}
+          ></AtPagination>
         </View>
       </View>
     )

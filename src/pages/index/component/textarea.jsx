@@ -5,13 +5,10 @@ import '../index.scss'
 
 export default class textArea extends Component {
   state = {
-    textList: [
-      '留言功能还在开发中，后期开放，敬请期待...',
-      '有任何疑问都可以随时私聊客服',
-      '希望大家给予一些好的建议',
-    ]
+    textList: []
   }
-  componentWillMount() {}
+  componentWillMount() {
+  }
 
   componentDidMount() {}
 
@@ -21,13 +18,14 @@ export default class textArea extends Component {
 
   componentDidHide() {}
   render() {
-    const { textList } = this.state
+    const { textList } = this.props
     return (
       <View className='section__textarea'>
         {textList.map((k, index) => {
           return (
             <View className='section__textarea__item' title='' key={index}>
-              <Text>{k}</Text>
+              <Text style='display:block;width:30px;float:left'>{String.fromCharCode(65+Math.ceil(Math.random() * 25))}{Math.floor((Math.random()*90)+10)}</Text>
+              <Text> : {k.content}</Text>
             </View>
           )
         })}

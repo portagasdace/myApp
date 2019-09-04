@@ -22,11 +22,13 @@ export default class Index extends Component {
       disabled: false
     },
     value: '',
+    textList:[],
     bannerList: [banner1, banner2, banner3, banner4]
   }
 
   componentWillMount = () => {
     // this.get_BannerList()
+    this.get_LeaveMsg()
   }
 
   componentDidMount() {}
@@ -91,6 +93,21 @@ export default class Index extends Component {
     }
   }
   /**
+   * @title
+   */
+  get_LeaveMsg = async () =>{
+    try {
+      const res = await Api.getLeaveMsg()
+      if(res.code === 200){
+        this.setState({
+          textList:res.data
+        })
+      }
+    } catch (error) {
+      
+    }
+  }
+  /**
    * 计时器
    */
    myTimer = () =>{
@@ -103,7 +120,7 @@ export default class Index extends Component {
     clearTimeout(myTimer)
   }
   render() {
-    const { bannerList, value, flags } = this.state
+    const { bannerList, value, flags, textList } = this.state
     return (
       <View className='index'>
         <AtMessage />
@@ -112,7 +129,7 @@ export default class Index extends Component {
           <Banner bannerList={bannerList} />
           <Notice />
           <Menu />
-          <Area />
+          <Area textList={textList} />
           <Input
             value={value}
             onChange={this.onChange.bind(this)}

@@ -10,14 +10,18 @@ import banner1 from '@/assets/img-banner1.jpg'
 import banner2 from '@/assets/img-banner2.jpg'
 import banner3 from '@/assets/img-banner3.jpg'
 import banner4 from '@/assets/img-banner4.jpg'
+import { AtPagination } from 'taro-ui'
 
 import Banner from '../index/component/banner'
 
 import './index.scss'
+import '../index/index.scss'
 
 
 export default class androidList extends Component {
   state = {
+    total:0,
+    current:1,
     appLists: [],
     bannerList: [banner1, banner2, banner3, banner4]
   }
@@ -48,10 +52,11 @@ export default class androidList extends Component {
    * @title 获取平台列表信息
    */
   async get_paltformList(){
+    const { current } = this.state
     try {
       let param={
         platformType:1,
-        offset:0
+        offset:current
       }
       const res = await Api.getpaltFormList(param)
       if(res.message === 'OK'){
@@ -88,6 +93,15 @@ export default class androidList extends Component {
     }
   };
   /**
+   * @title 点击页码
+   */
+  onPageChange = (data) => {
+    this.setState({
+      current:data.current
+    })
+    this.get_paltformList()
+  }
+  /**
    * @title 返回
    */
   back_clickHandle() {
@@ -96,7 +110,7 @@ export default class androidList extends Component {
     })
   }
   render() {
-    const { appLists, bannerList } = this.state
+    const { appLists, bannerList, total, current } = this.state
     return (
       <View className='applist'>
         <View className='applist__header'>
@@ -111,6 +125,13 @@ export default class androidList extends Component {
             <Banner bannerList={bannerList} />
           </View> */}
           <List list={appLists}></List>
+          <AtPagination 
+            className='page'
+            total={total} 
+            pageSize={15}
+            current={current}
+            onPageChange={this.onPageChange.bind(this)}
+          ></AtPagination>
         </View>
       </View>
     )
