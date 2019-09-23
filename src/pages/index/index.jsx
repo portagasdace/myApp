@@ -4,17 +4,13 @@ import { View, Input } from '@tarojs/components'
 
 import Api from '@/api/index'
 
-import banner1 from '@/assets/img-banner1.jpg'
-import banner2 from '@/assets/img-banner2.jpg'
-import banner3 from '@/assets/img-banner3.jpg'
-import banner4 from '@/assets/img-banner4.jpg'
-
 import './index.scss'
 import Header from './component/header'
 import Banner from './component/banner'
 import Menu from './component/menu'
 import Notice from './component/notice'
 import Area from './component/textarea'
+
 let  myVar = ''
 export default class Index extends Component {
   state = {
@@ -23,11 +19,11 @@ export default class Index extends Component {
     },
     value: '',
     textList:[],
-    bannerList: [banner1, banner2, banner3, banner4]
+    bannerList: []
   }
 
   componentWillMount = () => {
-    // this.get_BannerList()
+    this.get_BannerList()
     this.get_LeaveMsg()
   }
 
@@ -41,11 +37,11 @@ export default class Index extends Component {
       Taro.showLoading({
         title: '加载中'
       })
-      const res = await Api.getBannerList()
+      const res = await Api.getBannerList({type:1})
       if (res.code === 200) {
         let srcList = []
         res.data.map(k => {
-          srcList.push(k.img_url)
+          srcList.push('http://houtai.eshouz.com/' + k.img_url)
         })
         this.setState({
           bannerList: srcList
