@@ -6,9 +6,6 @@ import List from '@/components/list/list'
 import Api from "@/api/index";
 
 import back from '@/assets/icon-back.png'
-import app from '@/assets/img-app.jpg'
-import banner1 from '@/assets/ios-banner1.jpg'
-import banner2 from '@/assets/ios-banner2.jpg'
 
 import Banner from '../index/component/banner'
 
@@ -20,7 +17,7 @@ export default class appList extends Component {
     total:0,
     current:1,
     appLists: [],
-    bannerList: [banner1, banner2]
+    bannerList: []
   }
 
   componentWillMount() {
@@ -51,6 +48,10 @@ export default class appList extends Component {
    */
    get_paltformList = async () =>{
      const { current } = this.state
+     console.log(current)
+    Taro.showLoading({
+      title: '加载中'
+    })
     try {
       let param={
         platformType:2,
@@ -66,6 +67,7 @@ export default class appList extends Component {
     } catch (error) {
       console.log(error)
     }
+    Taro.hideLoading()
   }
   /**
    * @description 请求轮播图列表
@@ -75,11 +77,14 @@ export default class appList extends Component {
       Taro.showLoading({
         title: '加载中',
       });
-      const res = await Api.getBannerList()
+      const res = await Api.getBannerList({type:3})
       if(res.code === 200){
         let srcList = []
         res.data.map(k=>{
-          // srcList.push(k.img_url)
+          srcList.push('http://houtai.eshouz.com/' + k.img_url)
+        })
+        this.setState({
+          bannerList:srcList
         })
         // this.setState({
         //   bannerList:srcList
@@ -102,11 +107,13 @@ export default class appList extends Component {
   /**
    * @title 点击页码
    */
-  onPageChange = async (data) => {
-    await this.setState({
+  onPageChange = (data) => {
+    setTimeout(()=>{
+      this.get_paltformList()
+    },0)
+    this.setState({
       current:data.current
     })
-    this.get_paltformList()
   }
   render() {
     const { appLists, bannerList, total, current } = this.state

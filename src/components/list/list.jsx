@@ -1,6 +1,7 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Image, Text } from '@tarojs/components'
 import { AtTag } from 'taro-ui'
+import Api from '@/api/index'
 
 import './index.scss'
 
@@ -20,10 +21,16 @@ export default class List extends Component {
    * @description: 连接跳转
    * @param {data} 列表数据
    */
-  redriect = data => {
-    Taro.navigateTo({
-      url: data.link_to
-    })
+   redriect = async data => {
+    try {
+      let res  = await Api.getCount({id:data.id})
+      console.log(res,'统计')
+    } catch (error) {
+      console.log(error)
+    }
+    // Taro.navigateTo({
+    //   url: data.link_to
+    // })
   }
   render() {
     const { list } = this.props

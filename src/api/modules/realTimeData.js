@@ -2,15 +2,15 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-08 13:31:17
- * @LastEditTime: 2019-08-22 10:53:07
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2019-09-23 17:31:17
+ * @LastEditors: 刘玉生
  */
 export default {
   /**
    * @title 获得轮播图列表接口
    */
-  getBannerList() {
-    return this.get(`${this.API_HOST}/banner/list`)
+  getBannerList({type}) {
+    return this.post(`${this.API_HOST}/banner/list`,{type})
   },
   /**
    * @title 获得平台软件列表接口
@@ -32,5 +32,12 @@ export default {
    */
   getLeaveMsg() {
     return this.get(`${this.API_HOST}/leaveMsg/list`)
+  },
+  /**
+   * @title 查看留言接口
+   * @param {content} 内容  
+   */
+  getCount({id}) {
+    return this.post(`${this.API_HOST}/platform/linkUrl`,{id})
   }
 }

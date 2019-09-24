@@ -5,14 +5,8 @@ import List from '@/components/list/list'
 import Api from "@/api/index";
 
 import back from '@/assets/icon-back.png'
-import app from '@/assets/img-app.jpg'
-import banner1 from '@/assets/img-banner1.jpg'
-import banner2 from '@/assets/img-banner2.jpg'
-import banner3 from '@/assets/img-banner3.jpg'
-import banner4 from '@/assets/img-banner4.jpg'
 import { AtPagination } from 'taro-ui'
 
-import Banner from '../index/component/banner'
 
 import './index.scss'
 import '../index/index.scss'
@@ -23,7 +17,7 @@ export default class androidList extends Component {
     total:0,
     current:1,
     appLists: [],
-    bannerList: [banner1, banner2, banner3, banner4]
+    bannerList: []
   }
 
   componentWillMount() {
@@ -52,6 +46,9 @@ export default class androidList extends Component {
    * @title 获取平台列表信息
    */
   async get_paltformList(){
+    Taro.showLoading({
+      title: '加载中'
+    })
     const { current } = this.state
     try {
       let param={
@@ -67,6 +64,7 @@ export default class androidList extends Component {
     } catch (error) {
       console.log(error)
     }
+    Taro.hideLoading()
   }
   /**
    * @description 请求轮播图列表
@@ -76,14 +74,14 @@ export default class androidList extends Component {
       Taro.showLoading({
         title: '加载中',
       });
-      const res = await Api.getBannerList()
+      const res = await Api.getBannerList({type:2})
       if(res.code === 200){
         let srcList = []
         res.data.map(k=>{
-          srcList.push(k.img_url)
+          srcList.push('http://houtai.eshouz.com/'+ k.img_url)
         })
         this.setState({
-          bannerList:srcList
+          bannerList: srcList
         })
       }
       Taro.hideLoading();
@@ -95,8 +93,8 @@ export default class androidList extends Component {
   /**
    * @title 点击页码
    */
-  onPageChange = (data) => {
-    this.setState({
+   onPageChange = async (data) => {
+    await this.setState({
       current:data.current
     })
     this.get_paltformList()
@@ -110,7 +108,7 @@ export default class androidList extends Component {
     })
   }
   render() {
-    const { appLists, bannerList, total, current } = this.state
+    const { appLists, total, current } = this.state
     return (
       <View className='applist'>
         <View className='applist__header'>
