@@ -16,6 +16,7 @@ import Menu from './component/menu'
 import Notice from './component/notice'
 import Area from './component/textarea'
 let  myVar = ''
+const detailval = ''
 export default class Index extends Component {
   state = {
     flags: {
@@ -64,17 +65,15 @@ export default class Index extends Component {
    * @title  留言改变
    */
   onChange(data) {
-    this.setState({
-      value: data.detail.value
-    })
+    this.detailval = data.detail.value
   }
   /**
    * @title 提交留言
    */
   submit = async () => {
-    const { value } = this.state
+    const { detailval } = this
     try {
-      const res = await Api.setLeaveMsg({ content: value })
+      const res = await Api.setLeaveMsg({ content: detailval })
       if (res.message === 'OK') {
         Taro.atMessage({
           message: '提交成功，一段时间之后在提交吧！',
@@ -120,7 +119,8 @@ export default class Index extends Component {
     clearTimeout(myTimer)
   }
   render() {
-    const { bannerList, value, flags, textList } = this.state
+    const { bannerList, flags, textList } = this.state
+    const { detailval } = this.state
     return (
       <View className='index'>
         <AtMessage />
@@ -131,7 +131,7 @@ export default class Index extends Component {
           <Menu />
           <Area textList={textList} />
           <Input
-            value={value}
+            value={detailval}
             onChange={this.onChange.bind(this)}
             className='section__input'
             placeholder='吐槽一下'

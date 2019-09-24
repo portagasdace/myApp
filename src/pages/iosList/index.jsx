@@ -43,7 +43,7 @@ export default class appList extends Component {
    * @title 初始化
    */
   async init(){
-    // await this.get_BannerList()
+    await this.get_BannerList()
     await this.get_paltformList()
   }
   /**
@@ -79,11 +79,11 @@ export default class appList extends Component {
       if(res.code === 200){
         let srcList = []
         res.data.map(k=>{
-          srcList.push(k.img_url)
+          // srcList.push(k.img_url)
         })
-        this.setState({
-          bannerList:srcList
-        })
+        // this.setState({
+        //   bannerList:srcList
+        // })
       }
       Taro.hideLoading();
     } catch (error) {
@@ -102,8 +102,8 @@ export default class appList extends Component {
   /**
    * @title 点击页码
    */
-  onPageChange = (data) => {
-    this.setState({
+  onPageChange = async (data) => {
+    await this.setState({
       current:data.current
     })
     this.get_paltformList()
