@@ -8,9 +8,9 @@ import '../index.scss'
 export default class Noice extends Component {
   state = {
     noiceList: [
-      '部分功能还在开发中,但不影响大家赚钱',
-      '还望大家多多收藏本网站',
-      '以后会有更多好的项目分享给大家'
+      '本网站不收取任何费用，谨防受骗！',
+      '收集好的建议、想法，一经采用，好礼奉上',
+      '赚不赚钱，都欢迎找客服小姐姐聊天哦'
     ]
   }
   componentWillMount() {}

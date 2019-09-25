@@ -6,7 +6,7 @@ import Api from "@/api/index";
 
 import back from '@/assets/icon-back.png'
 import { AtPagination } from 'taro-ui'
-
+import Banner from '../index/component/banner'
 
 import './index.scss'
 import '../index/index.scss'
@@ -39,7 +39,7 @@ export default class androidList extends Component {
    * @title 初始化
    */
   async init(){
-    // await this.get_BannerList()
+    await this.get_BannerList()
     await this.get_paltformList()
   }
   /**
@@ -108,7 +108,7 @@ export default class androidList extends Component {
     })
   }
   render() {
-    const { appLists, total, current } = this.state
+    const { appLists, total, current, bannerList } = this.state
     return (
       <View className='applist'>
         <View className='applist__header'>
@@ -119,9 +119,9 @@ export default class androidList extends Component {
           />
         </View>
         <View className='applist__section'>
-          {/* <View className='applist__section__swiepr'>
+          <View className='applist__section__swiepr'>
             <Banner bannerList={bannerList} />
-          </View> */}
+          </View>
           <List list={appLists}></List>
           <AtPagination 
             className='page'

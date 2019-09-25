@@ -28,9 +28,9 @@ export default class List extends Component {
     } catch (error) {
       console.log(error)
     }
-    // Taro.navigateTo({
-    //   url: data.link_to
-    // })
+    Taro.navigateTo({
+      url: data.link_to
+    })
   }
   render() {
     const { list } = this.props

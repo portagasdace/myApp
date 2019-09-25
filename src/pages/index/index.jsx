@@ -55,7 +55,7 @@ export default class Index extends Component {
     }
   }
   config = {
-    // navigationBarTitleText: '一手赚'
+    navigationBarTitleText: `一手赚eshouz.com 手机兼职-手机赚钱-网络兼职试玩赚钱`
   }
   /**
    * @title  留言改变
@@ -144,8 +144,8 @@ export default class Index extends Component {
           </AtButton>
         </View>
         <View className='footer'>
-          <p>更多赚钱任务在更新中...敬请期待</p>
-          <p>官方唯一网址:eshouz.com</p>
+          <p>一手赚专注于免费的手机兼职赚钱项目，谨防受骗！</p>
+          <p>一手赚 官方唯一网站：eshouz.com</p>
         </View>
       </View>
     )
