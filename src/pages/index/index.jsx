@@ -55,7 +55,7 @@ export default class Index extends Component {
     }
   }
   config = {
-    navigationBarTitleText: `一手赚eshouz.com 手机兼职-手机赚钱-网络兼职试玩赚钱`
+    navigationBarTitleText: `一手赚 手机兼职-在家兼职赚钱-网络兼职试玩赚钱`
   }
   /**
    * @title  留言改变
