@@ -118,7 +118,7 @@
 
 "@tarojs/async-await@^1.3.12":
   version "1.3.19"
-  resolved "http://r.cnpmjs.org/@tarojs/async-await/download/@tarojs/async-await-1.3.19.tgz#1ff6106995256170275ec45cd02ccc0b76a15c87"
+  resolved "https://r.cnpmjs.org/@tarojs/async-await/download/@tarojs/async-await-1.3.19.tgz#1ff6106995256170275ec45cd02ccc0b76a15c87"
   integrity sha1-H/YQaZUlYXAnXsRc0CzMC3ahXIc=
   dependencies:
     promise-polyfill "^7.1.2"
@@ -200,7 +200,7 @@
 
 "@tarojs/taro-h5@1.3.19":
   version "1.3.19"
-  resolved "http://r.cnpmjs.org/@tarojs/taro-h5/download/@tarojs/taro-h5-1.3.19.tgz#abf4d90e9894f5f44bc892e71d63d8044f8d5cb2"
+  resolved "https://r.cnpmjs.org/@tarojs/taro-h5/download/@tarojs/taro-h5-1.3.19.tgz#abf4d90e9894f5f44bc892e71d63d8044f8d5cb2"
   integrity sha1-q/TZDpiU9fRLyJLnHWPYBE+NXLI=
   dependencies:
     base64-js "^1.3.0"
@@ -271,7 +271,7 @@
 
 "@tarojs/webpack-runner@^1.3.19":
   version "1.3.19"
-  resolved "http://r.cnpmjs.org/@tarojs/webpack-runner/download/@tarojs/webpack-runner-1.3.19.tgz#852c0d4477d5fd8a437e54e87c38a7aa34ccf601"
+  resolved "https://r.cnpmjs.org/@tarojs/webpack-runner/download/@tarojs/webpack-runner-1.3.19.tgz#852c0d4477d5fd8a437e54e87c38a7aa34ccf601"
   integrity sha1-hSwNRHfV/YpDflTofDinqjTM9gE=
   dependencies:
     "@tarojs/taro-h5" "1.3.19"
@@ -359,7 +359,7 @@
 
 "@types/react@^16.7.3":
   version "16.9.3"
-  resolved "http://r.cnpmjs.org/@types/react/download/@types/react-16.9.3.tgz#6d13251e441a3e67fb60d719d1fc8785b984a2ec"
+  resolved "https://r.cnpmjs.org/@types/react/download/@types/react-16.9.3.tgz#6d13251e441a3e67fb60d719d1fc8785b984a2ec"
   integrity sha1-bRMlHkQaPmf7YNcZ0fyHhbmEouw=
   dependencies:
     "@types/prop-types" "*"
@@ -572,7 +572,7 @@ acorn@^6.0.7:
 
 address@^1.0.1:
   version "1.1.2"
-  resolved "http://r.cnpmjs.org/address/download/address-1.1.2.tgz#bf1116c9c758c51b7a933d296b72c221ed9428b6"
+  resolved "https://r.cnpmjs.org/address/download/address-1.1.2.tgz#bf1116c9c758c51b7a933d296b72c221ed9428b6"
   integrity sha1-vxEWycdYxRt6kz0pa3LCIe2UKLY=
 
 adjust-sourcemap-loader@^1.1.0:
@@ -1408,7 +1408,7 @@ babel-plugin-transform-strict-mode@^6.24.1:
 
 babel-plugin-transform-taroapi@1.3.19:
   version "1.3.19"
-  resolved "http://r.cnpmjs.org/babel-plugin-transform-taroapi/download/babel-plugin-transform-taroapi-1.3.19.tgz#7b0c886b95417513a4e7f3e879aa7ef2e79b413e"
+  resolved "https://r.cnpmjs.org/babel-plugin-transform-taroapi/download/babel-plugin-transform-taroapi-1.3.19.tgz#7b0c886b95417513a4e7f3e879aa7ef2e79b413e"
   integrity sha1-ewyIa5VBdROk5/Poeap+8uebQT4=
 
 babel-preset-env@^1.6.1:
@@ -1578,7 +1578,7 @@ binary-extensions@^1.0.0:
 
 bind-decorator@^1.0.11:
   version "1.0.11"
-  resolved "http://r.cnpmjs.org/bind-decorator/download/bind-decorator-1.0.11.tgz#e41bc06a1f65dd9cec476c91c5daf3978488252f"
+  resolved "https://r.cnpmjs.org/bind-decorator/download/bind-decorator-1.0.11.tgz#e41bc06a1f65dd9cec476c91c5daf3978488252f"
   integrity sha1-5BvAah9l3ZzsR2yRxdrzl4SIJS8=
 
 block-stream@*:
@@ -2524,7 +2524,7 @@ date-now@^0.1.4:
 
 dayjs@^1.7.7:
   version "1.8.16"
-  resolved "http://r.cnpmjs.org/dayjs/download/dayjs-1.8.16.tgz#2a3771de537255191b947957af2fd90012e71e64"
+  resolved "https://r.cnpmjs.org/dayjs/download/dayjs-1.8.16.tgz#2a3771de537255191b947957af2fd90012e71e64"
   integrity sha1-Kjdx3lNyVRkblHlXry/ZABLnHmQ=
 
 debug@*, debug@^4.0.1, debug@^4.1.0:
@@ -2696,7 +2696,7 @@ detect-node@^2.0.4:
 
 detect-port@^1.3.0:
   version "1.3.0"
-  resolved "http://r.cnpmjs.org/detect-port/download/detect-port-1.3.0.tgz#d9c40e9accadd4df5cac6a782aefd014d573d1f1"
+  resolved "https://r.cnpmjs.org/detect-port/download/detect-port-1.3.0.tgz#d9c40e9accadd4df5cac6a782aefd014d573d1f1"
   integrity sha1-2cQOmsyt1N9crGp4Ku/QFNVz0fE=
   dependencies:
     address "^1.0.1"
@@ -5058,10 +5058,10 @@ lodash@4.17.13:
   resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.13.tgz#0bdc3a6adc873d2f4e0c4bac285df91b64fc7b93"
   integrity sha1-C9w6atyHPS9ODEusKF35G2T8e5M=
 
-lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@~4.17.10:
-  version "4.17.15"
-  resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
-  integrity sha1-tEf2ZwoEVbv+7dETku/zMOoJdUg=
+lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@~4.17.10:
+  version "4.17.20"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
+  integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
 
 log-symbols@^2.0.0, log-symbols@^2.1.0, log-symbols@^2.2.0:
   version "2.2.0"
@@ -5681,10 +5681,10 @@ node-pre-gyp@^0.12.0:
     semver "^5.3.0"
     tar "^4"
 
-node-sass@^4.10.0, node-sass@^4.12.0:
-  version "4.12.0"
-  resolved "https://registry.npm.taobao.org/node-sass/download/node-sass-4.12.0.tgz#0914f531932380114a30cc5fa4fa63233a25f017"
-  integrity sha1-CRT1MZMjgBFKMMxfpPpjIzol8Bc=
+node-sass@^4.10.0, node-sass@^4.12.0, node-sass@^4.13.1:
+  version "4.13.1"
+  resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.13.1.tgz#9db5689696bb2eec2c32b98bfea4c7a2e992d0a3"
+  integrity sha512-TTWFx+ZhyDx1Biiez2nB0L3YrCZ/8oHagaDalbuBSlqXgUPsdkUSzJsVxeDO9LtPB49+Fh3WQl3slABo6AotNw==
   dependencies:
     async-foreach "^0.1.3"
     chalk "^1.1.1"
@@ -5693,7 +5693,7 @@ node-sass@^4.10.0, node-sass@^4.12.0:
     get-stdin "^4.0.1"
     glob "^7.0.3"
     in-publish "^2.0.0"
-    lodash "^4.17.11"
+    lodash "^4.17.15"
     meow "^3.7.0"
     mkdirp "^0.5.1"
     nan "^2.13.2"
@@ -6383,7 +6383,7 @@ postcss-modules-values@^1.3.0:
 
 postcss-plugin-constparse@1.3.19:
   version "1.3.19"
-  resolved "http://r.cnpmjs.org/postcss-plugin-constparse/download/postcss-plugin-constparse-1.3.19.tgz#2d59090378081673cc909d6b816d52211c38f5fa"
+  resolved "https://r.cnpmjs.org/postcss-plugin-constparse/download/postcss-plugin-constparse-1.3.19.tgz#2d59090378081673cc909d6b816d52211c38f5fa"
   integrity sha1-LVkJA3gIFnPMkJ1rgW1SIRw49fo=
   dependencies:
     postcss "^6.0.22"
@@ -6398,7 +6398,7 @@ postcss-pxtorem@^4.0.1:
 
 postcss-pxtransform@1.3.19:
   version "1.3.19"
-  resolved "http://r.cnpmjs.org/postcss-pxtransform/download/postcss-pxtransform-1.3.19.tgz#6318c107b7d34793eb81f204e5b894a481d22c76"
+  resolved "https://r.cnpmjs.org/postcss-pxtransform/download/postcss-pxtransform-1.3.19.tgz#6318c107b7d34793eb81f204e5b894a481d22c76"
   integrity sha1-YxjBB7fTR5PrgfIE5biUpIHSLHY=
   dependencies:
     postcss "^6.0.16"
@@ -6538,7 +6538,7 @@ promise-inflight@^1.0.1:
 
 promise-polyfill@^7.1.2:
   version "7.1.2"
-  resolved "http://r.cnpmjs.org/promise-polyfill/download/promise-polyfill-7.1.2.tgz#ab05301d8c28536301622d69227632269a70ca3b"
+  resolved "https://r.cnpmjs.org/promise-polyfill/download/promise-polyfill-7.1.2.tgz#ab05301d8c28536301622d69227632269a70ca3b"
   integrity sha1-qwUwHYwoU2MBYi1pInYyJppwyjs=
 
 promise@^7.1.1:
@@ -6840,7 +6840,7 @@ regenerate@^1.2.1:
 
 regenerator-runtime@^0.11.0, regenerator-runtime@^0.11.1:
   version "0.11.1"
-  resolved "http://r.cnpmjs.org/regenerator-runtime/download/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
+  resolved "https://r.cnpmjs.org/regenerator-runtime/download/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
   integrity sha1-vgWtf5v30i4Fb5cmzuUBf78Z4uk=
 
 regenerator-transform@^0.10.0:
@@ -7995,7 +7995,7 @@ tar@^4:
 
 taro-ui@^2.2.1:
   version "2.2.2"
-  resolved "http://r.cnpmjs.org/taro-ui/download/taro-ui-2.2.2.tgz#485847ed2ac2343c394477b25bbea439e0adc03d"
+  resolved "https://r.cnpmjs.org/taro-ui/download/taro-ui-2.2.2.tgz#485847ed2ac2343c394477b25bbea439e0adc03d"
   integrity sha1-SFhH7SrCNDw5RHeyW76kOeCtwD0=
   dependencies:
     "@types/react" "^16.7.3"
